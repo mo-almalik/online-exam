@@ -1,4 +1,4 @@
-import { getToken } from '@/utils/getToken';
+import { getToken } from '@/lib/utils/getToken';
 
 export default async function page() {
   const JWT = await getToken();

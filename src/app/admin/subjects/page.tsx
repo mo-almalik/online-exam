@@ -1,7 +1,7 @@
-import SubjectsList from '@/components/subject-list';
+import SubjectsList from '@/components/features/subject/subject-list';
 import { JSON_HEADER } from '@/lib/constants/api.constants';
 import { SubjectsResponse } from '@/lib/types/subject';
-import { getToken } from '@/utils/getToken';
+import { getToken } from '@/lib/utils/getToken';
 
 export default async function Subjects() {
   const authToken = await getToken();

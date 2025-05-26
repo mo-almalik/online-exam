@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { signIn } from 'next-auth/react';
 import { toast } from 'sonner';
 
-export default function UseLogin() {
+export default function useLogin() {
   const { data, error, isPending, mutate } = useMutation({
     mutationFn: async (data: LoginFormValues) => {
       const response = await signIn('credentials', {
@@ -15,7 +15,7 @@ export default function UseLogin() {
 
       return response;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success('Login successful');
       setTimeout(() => {
         window.location.href = '/';

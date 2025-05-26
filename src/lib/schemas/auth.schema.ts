@@ -14,7 +14,8 @@ export const signupSchema = z
       .string({
         required_error: 'Password is required',
       })
-      .min(8, 'Password must be at least 8 characters').regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
+      .min(8, 'Password must be at least 8 characters')
+      .regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
       .max(20, 'Password must be at most 20 characters'),
     rePassword: z.string({
       required_error: 'Please confirm your password',
@@ -83,16 +84,12 @@ export const verifyCodeSchema = z.object({
 
 // reset password schema
 export const resetPasswordSchema = z.object({
-  email: z
-    .string({
-      required_error: 'Email is required',
-    })
-    .email('Please enter a valid email'),
   newPassword: z
     .string({
       required_error: 'Password is required',
     })
-    .min(8, 'Password must be at least 8 characters').regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
+    .min(8, 'Password must be at least 8 characters')
+    .regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
 });
 
 export type SignupFormValues = z.infer<typeof signupSchema>;

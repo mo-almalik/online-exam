@@ -1,9 +1,9 @@
 'use client';
 import Image from 'next/image';
-import logo from '../../../../public/assets/images/logo.png';
+import logo from 'assets/images/logo.png';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeftToLine,LayoutPanelLeft, } from 'lucide-react';
+import { ArrowLeftToLine, LayoutPanelLeft } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
 const items = [

@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 import { JSON_HEADER } from '@/lib/constants/api.constants';
 import { SubjectsResponse } from '@/lib/types/subject';
-import { getToken } from '@/utils/getToken';
+import { getToken } from '@/lib/utils/getToken';
 import Profile from './_components/profile';
-import SubjectsList from '@/components/subject-list';
+import SubjectsList from '@/components/features/subject/subject-list';
 
 export default async function Dashboard() {
   const authToken = await getToken();

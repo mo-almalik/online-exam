@@ -2,7 +2,6 @@ import { decode } from 'next-auth/jwt';
 import { cookies } from 'next/headers';
 
 export const getToken = async () => {
-  
   const authCookie = cookies().get('next-auth.session-token')?.value;
 
   try {
@@ -13,6 +12,8 @@ export const getToken = async () => {
 
     return token?.token;
   } catch (error) {
+    void error;
+
     return null;
   }
 };

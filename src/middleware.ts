@@ -18,12 +18,13 @@ export default async function middleware(req: NextRequest) {
   if (authPage.has(pathname) && token) {
     const redirectPath = role === 'admin' ? '/admin' : '/dashboard';
     const redirectUrl = new URL(redirectPath, req.nextUrl.origin);
+
     return NextResponse.redirect(redirectUrl);
   }
 
   if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {
     if (!token) {
-      const redirectUrl = new URL('/', req.nextUrl.origin);
+      const redirectUrl = new URL('/auth/sign-in', req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }
 
@@ -32,6 +33,7 @@ export default async function middleware(req: NextRequest) {
       return NextResponse.redirect(redirectUrl);
     }
     if (role === 'admin' && !pathname.startsWith('/admin')) {
+      // You should not force the admin to only access the admin dashboard, admin can access anything the user can access
       const redirectUrl = new URL('/admin', req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }

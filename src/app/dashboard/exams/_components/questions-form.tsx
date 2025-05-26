@@ -8,14 +8,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { AnswerFields, ExamSchema } from '@/lib/schemas/exam.schema';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/cn';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Button } from '@/components/ui/button';
 import ExamDuration from './exam-duration';
-
 
 type QuestionDialogProps = {
   questions: Question[];
@@ -26,7 +25,6 @@ export default function QuestionsForm({ questions }: QuestionDialogProps) {
   const [step, setStep] = useState(0);
   const [answer, setAnswer] = useState('');
   const [elapsed, setElapsed] = useState(0);
-
 
   // Variables
   const currentQuestion = questions[step];
@@ -42,7 +40,6 @@ export default function QuestionsForm({ questions }: QuestionDialogProps) {
   // Functions
   const onSubmit: SubmitHandler<AnswerFields> = (data) => {
     console.log(data);
-    
   };
   return (
     <>

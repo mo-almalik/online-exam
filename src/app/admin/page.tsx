@@ -1,6 +1,6 @@
-import SubjectsList from '@/components/subject-list';
+import SubjectsList from '@/components/features/subject/subject-list';
 import { SubjectsResponse } from '@/lib/types/subject';
-import { getToken } from '@/utils/getToken';
+import { getToken } from '@/lib/utils/getToken';
 import Link from 'next/link';
 
 export default async function Admin() {

@@ -1,13 +1,19 @@
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className='h-screen flex items-center justify-center w-full'>
-      <div className='w-full text-center'>
-        <h2 className='text-red-500 text-[55px] font-extrabold'>404</h2>
-        <p>Could not find requested resource</p>
+    <main className='h-screen flex flex-col items-center justify-center w-full'>
+      {/* 404 */}
+      <h2 className='text-red-500 text-[55px] font-extrabold'>404</h2>
+
+      {/* Title */}
+      <p>Could not find requested resource</p>
+
+      {/* Return home */}
+      <Button asChild variant='outline' className='mt-4'>
         <Link href='/'>Return Home</Link>
-      </div>
-    </div>
+      </Button>
+    </main>
   );
 }

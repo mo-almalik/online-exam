@@ -1,6 +1,6 @@
 'use server';
 
-import { getToken } from '@/utils/getToken';
+import { getToken } from '@/lib/utils/getToken';
 
 export default async function historyActions() {
   const JWT = await getToken();
